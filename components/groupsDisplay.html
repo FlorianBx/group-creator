@@ -1,0 +1,15 @@
+<div x-data="groupsDisplay" x-show="$store.groups.groups.length > 0">
+  <h2 class="text-xl font-semibold mb-4 text-gray-700">Groupes générés</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <template x-for="(group, index) in $store.groups.groups" :key="index">
+      <div class="border rounded p-4 bg-gray-50">
+        <h3 class="font-semibold mb-2" x-text="'Groupe ' + (index + 1)"></h3>
+        <ul class="space-y-1">
+          <template x-for="(person, personIndex) in group" :key="personIndex">
+            <li x-text="person"></li>
+          </template>
+        </ul>
+      </div>
+    </template>
+  </div>
+</div>
